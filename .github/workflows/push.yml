@@ -15,7 +15,6 @@ jobs:
           npm install pnpm -g
           pnpm install
           pnpm run docs:build
-          echo "docs.misaka10876.top" > docs/.vitepress/dist/CNAME
       - name: Deploy
         uses: s0/git-publish-subdir-action@develop
         env:
