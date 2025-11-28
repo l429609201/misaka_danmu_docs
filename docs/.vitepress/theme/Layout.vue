@@ -18,7 +18,20 @@
         </el-alert>
       </div>
       <div style="margin-top: 24px;width: 100%;">
-        <!-- Giscus 评论系统已禁用 -->
+        <Giscus
+            :key="page.filePath"
+            repo="l429609201/misaka_danmu_docs"
+            repo-id="R_kgDOQegiQA"
+            category="Announcements"
+            category-id="DIC_kwDOQegiQM4CzJPM"
+            mapping="pathname"
+            strict="0"
+            reactions-enabled="1"
+            emit-metadata="0"
+            input-position="bottom"
+            :theme="isDark ? 'dark' : 'light'"
+            lang="zh-CN"
+        />
       </div>
     </template>
   </Layout>

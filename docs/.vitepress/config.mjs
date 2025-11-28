@@ -10,7 +10,7 @@ export default defineConfig({
     themeConfig: {
         // https://vitepress.dev/reference/default-theme-config
         logo: {
-            src: '/icon.svg',
+            src: '/logo.png',
             alt: 'logo',
         },
         nav: [
@@ -167,7 +167,7 @@ export default defineConfig({
             "meta",
             {
                 property: "og:image",
-                content: "https://docs.misaka10876.top/icon.svg"
+                content: "https://docs.misaka10876.top/logo.png"
             },
         ],
         ["meta", {property: "og:image:width", content: "1280"}],
@@ -182,10 +182,11 @@ export default defineConfig({
             "meta",
             {
                 name: "twitter:image",
-                content: "https://docs.misaka10876.top/icon.svg"
+                content: "https://docs.misaka10876.top/logo.png"
             },
         ],
         ['link', {rel: 'icon', href: '/favicon.ico'}],
+        ['script', {src: '/custom.js'}],
         ['meta', {name: "theme-color", id: "themeColorMeta", content: "#ffffff"}],
     ],
     lastUpdated: true,
