@@ -4,7 +4,7 @@ title: 首页
 ---
 
 <div align="center">
-<img alt="logo.png" height="100" width="100" src="/logo.png"/>
+<img alt="icon.svg" height="100" width="100" src="/icon.svg"/>
 <h1>
 御坂网络弹幕服务
 </h1>
