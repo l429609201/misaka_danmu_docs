@@ -2,8 +2,8 @@ name: Push to Another Repository
 
 on:
   workflow_dispatch:
-#  push:
-#    branches: ["master"]
+  push:
+    branches: ["main"]
 
 jobs:
   run_job:
