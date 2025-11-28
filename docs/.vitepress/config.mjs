@@ -120,7 +120,7 @@ export default defineConfig({
         returnToTopLabel: '返回顶部',
         sidebarMenuLabel: '菜单',
         editLink: {
-            pattern: 'https://github.com/l429609201/misaka_danmu_server/edit/main/docs/:path',
+            pattern: 'https://github.com/l429609201/misaka_danmu_docs/edit/main/docs/:path',
             text: '在 GitHub 上编辑此页面'
         },
         lastUpdated: {
@@ -161,13 +161,30 @@ export default defineConfig({
         ["meta", {property: "og:type", content: "website"}],
         ["meta", {property: "og:title", content: "御坂网络弹幕服务 - 自托管弹幕聚合与管理"}],
         ["meta", {property: "og:description", content: "一个功能强大的自托管弹幕聚合与管理服务，兼容 dandanplay API 规范"}],
+        ["meta", {property: "og:url", content: "https://docs.misaka10876.top"}],
         ["meta", {property: "og:site_name", content: "御坂网络弹幕服务"}],
+        [
+            "meta",
+            {
+                property: "og:image",
+                content: "https://docs.misaka10876.top/logo.png"
+            },
+        ],
+        ["meta", {property: "og:image:width", content: "1280"}],
+        ["meta", {property: "og:image:height", content: "640"}],
         ["meta", {property: "og:locale", content: "zh_CN"}],
 
         // Twitter Cards
         ["meta", {name: "twitter:card", content: "summary_large_image"}],
         ["meta", {name: "twitter:title", content: "御坂网络弹幕服务 - 自托管弹幕聚合与管理"}],
         ["meta", {name: "twitter:description", content: "一个功能强大的自托管弹幕聚合与管理服务，兼容 dandanplay API 规范"}],
+        [
+            "meta",
+            {
+                name: "twitter:image",
+                content: "https://docs.misaka10876.top/logo.png"
+            },
+        ],
         ['link', {rel: 'icon', href: '/favicon.ico'}],
         ['meta', {name: "theme-color", id: "themeColorMeta", content: "#ffffff"}],
     ],
@@ -176,5 +193,8 @@ export default defineConfig({
         image: {
             lazyLoading: false
         }
+    },
+    sitemap: {
+        hostname: 'https://docs.misaka10876.top'
     }
 })
