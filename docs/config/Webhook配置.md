@@ -1,147 +1,122 @@
-# 🔗 Webhook 配置
+# Webhook 配置
 
-Webhook 功能允许御坂网络弹幕服务与其他媒体管理工具自动集成，实现全自动化工作流。
+本服务支持通过 Webhook 接收来自 Emby、Jellyfin、Plex 等媒体服务器的通知，实现新媒体入库后的弹幕自动搜索和导入。
 
-[[toc]]
+![Webhook管理](/screenshot/webhook管理.png)
 
-## 支持的服务
+## 1. 获取 Webhook URL
 
-- **Emby** - 媒体服务器
-- **Jellyfin** - 开源媒体服务器
-- **Plex** - 媒体服务器
-
-## Webhook 工作原理
-
-1. 媒体服务器或下载工具添加/更新媒体文件
-2. 触发 Webhook 通知御坂弹幕服务
-3. 系统自动识别媒体信息
-4. 自动匹配并下载弹幕
-5. 弹幕立即可用
-
-## 配置步骤
-
-### 1. 获取 Webhook URL
-
-登录 Web UI，进入 **设置** → **Webhook 配置**，复制 Webhook URL：
-
-```
-http://<服务器IP>:7768/api/webhook
-```
-
-### 2. 配置 Sonarr
-
-1. 打开 Sonarr Web UI
-2. 进入 **Settings** → **Connect**
-3. 点击 **+** 添加新连接
-4. 选择 **Webhook**
-5. 配置：
-   - **Name**: Misaka Danmu
-   - **URL**: `http://<IP>:7768/api/webhook`
-   - **Method**: POST
-   - **Triggers**: 勾选 `On Download` 和 `On Upgrade`
-6. 测试并保存
-
-### 3. 配置 Radarr
-
-配置方法与 Sonarr 相同：
-
-1. 进入 **Settings** → **Connect**
-2. 添加 **Webhook**
-3. 填入 URL 和触发条件
-4. 保存配置
-
-### 4. 配置 Emby
-
-1. 安装 Emby Webhook 插件
-2. 进入 **插件** → **Webhook 配置**
-3. 添加新 Webhook：
-   - **URL**: `http://<IP>:7768/api/webhook`
-   - **Events**: 选择 `Library.New` 和 `Library.Updated`
-4. 保存配置
-
-### 5. 配置 Jellyfin
-
-1. 安装 Jellyfin Webhook 插件
-2. 进入 **控制台** → **插件** → **Webhook**
-3. 添加 Webhook：
-   - **Webhook URL**: `http://<IP>:7768/api/webhook`
-   - **Events**: 勾选 `Item Added` 和 `Item Updated`
-4. 保存配置
-
-### 6. 配置 Plex
-
-1. 需要 Plex Pass 订阅
-2. 进入 **Settings** → **Webhooks**
-3. 添加 Webhook URL：`http://<IP>:7768/api/webhook`
-4. 保存配置
-
-## 高级配置
-
-### 自定义 Webhook 参数
-
-在 Web UI 的 Webhook 配置中，可以设置：
-
-- **自动匹配阈值** - 匹配置信度低于此值时不自动处理
-- **通知设置** - Webhook 触发时是否发送通知
-- **过滤规则** - 只处理特定类型的媒体
-
-### Webhook 认证
-
-为了安全，可以启用 Webhook 认证：
-
-1. 在 Web UI 生成 Webhook Token
-2. 在 Webhook URL 中添加 Token：
+1. 在 Web UI 的 "设置" -> "Webhook" 页面，您会看到一个为您生成的唯一的 **API Key**。
+2. 根据您要集成的服务，复制对应的 Webhook URL。URL 的通用格式为：
    ```
-   http://<IP>:7768/api/webhook?token=<YOUR_TOKEN>
+   http://<服务器IP>:<端口>/api/webhook/{服务名}?api_key=<你的API_Key>
    ```
 
-## 测试 Webhook
+   - `<服务器IP>`: 部署本服务的主机 IP 地址。
+   - `<端口>`: 部署本服务时设置的端口（默认为 `7768`）。
+   - `{服务名}`: webhook界面中下方已加载的服务名称，例如 `emby`、`jellyfin`、`plex`。
+   - `<你的API_Key>`: 您在 Webhook 设置页面获取的密钥。
+3. 现在已经增加拼接URL后的复制按钮
 
-### 手动测试
+## 2. 配置媒体服务器
 
-使用 curl 命令测试：
+### 对于 Emby
 
-```bash
-curl -X POST http://<IP>:7768/api/webhook \
-  -H "Content-Type: application/json" \
-  -d '{
-    "eventType": "Test",
-    "series": {
-      "title": "测试剧集",
-      "path": "/media/test.mkv"
-    }
-  }'
-```
+1. 登录您的 Emby 服务器管理后台。
+2. 导航到 **通知** (Notifications)。
+3. 点击 **添加通知** (Add Notification)，选择 **Webhook** 类型。
+4. 在 **Webhook URL** 字段中，填入您的 Emby Webhook URL，例如：
+   ```
+   http://192.168.1.100:7768/api/webhook/emby?api_key=your_webhook_api_key_here
+   ```
+5. **关键步骤**: 在 **事件** (Events) 部分，请务必**只勾选**以下事件：
+   - **项目已添加 (Item Added)**: 这是新媒体入库的事件，其对应的事件名为 `新媒体添加`。
+6. 确保 **发送内容类型** (Content type) 设置为 `application/json`。
+7. 保存设置。
 
-### 查看 Webhook 日志
+### 对于 Jellyfin
 
-在 Web UI 的 **日志** 页面可以查看 Webhook 调用记录。
+1. 登录您的 Jellyfin 服务器管理后台。
+2. 导航到 **我的插件**，找到 **Webhook** 插件，如果没有找到，请先安装插件，并重启服务器。
+3. 点击 **Webhook** 插件，进入配置页面。
+4. 在 **Server Url** 中输入jellyfin 访问地址（可选）。
+5. 点击 **Add Generic Destination**。
+6. 输入 **Webhook Name**
+7. 在 **Webhook URL** 字段中，填入您的 Jellyfin Webhook URL，例如：
+   ```
+   http://192.168.1.100:7768/api/webhook/jellyfin?api_key=your_webhook_api_key_here
+   ```
+8. **关键步骤**: 在 **Notification Type** 部分，请务必**只勾选**以下事件：
+   - **Item Added**: 这是新媒体入库的事件，其对应的事件名为 `新媒体添加`。
+9. **关键步骤**: 一定要勾选 **Send All Properties (ignores template)** 选项。
+10. 保存设置。
 
-## 常见问题
+### 对于 Plex
 
-### Webhook 未触发
+#### 方式一：Plex 原生 Webhooks（需要 Plex Pass，有局限性）
 
-- 检查 URL 是否正确
-- 确认防火墙允许访问
-- 查看源服务（Sonarr/Emby 等）的日志
-- 测试网络连接：`curl http://<IP>:7768/api/health`
+1. 登录您的 Plex 服务器管理后台。
+2. 导航到 **设置** -> **Webhooks**。
+3. 点击 **添加 Webhook**。
+4. 在 **URL** 字段中，填入您的 Plex Webhook URL，例如：
+   ```
+   http://192.168.1.100:7768/api/webhook/plex?api_key=your_webhook_api_key_here
+   ```
+5. 保存设置。
 
-### Webhook 触发但未处理
+> **⚠️ 重要限制**:
+> - **需要 Plex Pass 订阅**
+> - **无法处理批量入库**：当您一次性添加多集剧集时（如第1-7集），Plex 原生 webhook 只会发送一个剧集级别的通知，无法获取具体的集数信息
+> - 本服务只会处理 `library.new` 事件（新媒体入库），其他事件会被忽略
 
-- 检查 Webhook 日志
-- 确认媒体文件路径正确
-- 检查是否配置了过滤规则
-- 查看系统日志排查错误
+#### 方式二：通过 Tautulli（强烈推荐）
 
-### 路径映射问题
+**为什么推荐 Tautulli？**
+- ✅ **解决批量入库问题**：完美处理连续剧集入库（如一次性添加第1-7集）
+- ✅ **无需 Plex Pass**：免费使用，无订阅要求
+- ✅ **精确事件控制**：只在真正需要时触发，减少无用请求
 
-如果 Sonarr/Radarr 和弹幕服务的文件路径不同，需要配置路径映射：
+**详细配置步骤：**
 
-1. 进入 **设置** → **路径映射**
-2. 添加映射规则：
-   - **源路径**: `/downloads/media`
-   - **目标路径**: `/media`
-3. 保存配置
+1. **安装 Tautulli**
+   - 访问 [Tautulli 官网](https://tautulli.com/) 下载并安装
+   - 配置 Tautulli 连接到您的 Plex 服务器
+
+2. **创建 Webhook 通知**
+   - 登录 Tautulli 管理后台
+   - 导航到 **Settings** -> **Notification Agents**
+   - 点击 **Add a new notification agent**，选择 **Webhook**
+
+3. **Configuration 标签页配置**
+   - **Webhook URL**: 填入您的 Plex Webhook URL：
+     ```
+     http://192.168.1.100:7768/api/webhook/plex?api_key=your_webhook_api_key_here
+     ```
+   - **Webhook Method**: 选择 `POST`
+
+4. **Triggers 标签页配置**
+   - 勾选 **Recently Added**（新媒体入库事件）
+   - 其他事件保持不勾选
+
+5. **Data 标签页配置**
+   - 展开 **Recently Added** 部分
+   - 在 **JSON Data** 字段中填入以下模板：
+     ```json
+     {
+       "media_type": "{media_type}",
+       "title": "{title}",
+       "show_name": "{show_name}",
+       "season": "{season_num}",
+       "episode": "{episode_num}",
+       "release_date": "{air_date}",
+       "user_name": "{username}",
+       "action": "created"
+     }
+     ```
+
+6. **保存并测试**
+   - 点击 **Save** 保存配置
+   - 可以使用 **Test** 功能验证配置是否正确
 
 ---
 
@@ -149,6 +124,5 @@ curl -X POST http://<IP>:7768/api/webhook \
 
 - **[🎬 元数据源配置](/config/元数据源配置)** - 提高匹配准确率
 - **[🤖 AI 功能配置](/config/AI功能配置)** - AI 辅助识别
-- **[🤖 Telegram Bot](/config/Telegram机器人)** - 接收通知
 - **[❓ 常见问题](/常见问题)** - 故障排除
 

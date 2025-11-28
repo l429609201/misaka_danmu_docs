@@ -28,21 +28,34 @@ export default defineConfig({
                     {text: '元数据源配置', link: '/config/元数据源配置'},
                     {text: 'AI 功能配置', link: '/config/AI功能配置'},
                     {text: 'Webhook 配置', link: '/config/Webhook配置'},
+                    {text: '过滤配置', link: '/config/过滤配置'},
                     {text: 'Telegram Bot', link: '/config/Telegram机器人'},
                 ]
             },
             {
                 text: '高级功能',
                 items: [
-                    {text: '弹幕功能配置', link: '/advanced/弹幕功能配置'},
+                    {text: '弹幕库管理', link: '/advanced/弹幕库管理'},
+                    {text: '媒体获取', link: '/advanced/媒体获取'},
+                    {text: '弹幕API功能配置', link: '/advanced/弹幕API功能配置'},
                     {text: '弹幕源管理', link: '/advanced/弹幕源管理'},
+                    {text: '外部控制', link: '/advanced/外部控制'},
+                ]
+            },
+            {
+                text: '进阶操作',
+                items: [
+                    {text: '连接已有数据库', link: '/ops/连接已有数据库'},
                 ]
             },
             {
                 text: '运维优化',
                 items: [
                     {text: 'MySQL 优化', link: '/ops/MySQL内存优化'},
+                    {text: '定时任务', link: '/ops/定时任务'},
+                    {text: '缓存日志清理', link: '/ops/缓存日志清理任务说明'},
                     {text: '常见问题', link: '/常见问题'},
+                    {text: '问题反馈', link: '/问题反馈'},
                 ]
             },
         ],
@@ -60,21 +73,35 @@ export default defineConfig({
                     {text: '元数据源配置', link: '/config/元数据源配置'},
                     {text: 'AI 功能配置', link: '/config/AI功能配置'},
                     {text: 'Webhook 配置', link: '/config/Webhook配置'},
+                    {text: '过滤配置', link: '/config/过滤配置'},
                     {text: 'Telegram Bot', link: '/config/Telegram机器人'},
+                    {text: '设置', link: '/config/设置'},
                 ]
             },
             {
                 text: '高级功能',
                 items: [
-                    {text: '弹幕功能配置', link: '/advanced/弹幕功能配置'},
+                    {text: '弹幕库管理', link: '/advanced/弹幕库管理'},
+                    {text: '媒体获取', link: '/advanced/媒体获取'},
+                    {text: '弹幕API功能配置', link: '/advanced/弹幕API功能配置'},
                     {text: '弹幕源管理', link: '/advanced/弹幕源管理'},
+                    {text: '外部控制', link: '/advanced/外部控制'},
+                ]
+            },
+            {
+                text: '进阶操作',
+                items: [
+                    {text: '连接已有数据库', link: '/ops/连接已有数据库'},
                 ]
             },
             {
                 text: '运维与优化',
                 items: [
                     {text: 'MySQL 优化', link: '/ops/MySQL内存优化'},
+                    {text: '定时任务', link: '/ops/定时任务'},
+                    {text: '缓存日志清理', link: '/ops/缓存日志清理任务说明'},
                     {text: '常见问题', link: '/常见问题'},
+                    {text: '问题反馈', link: '/问题反馈'},
                 ]
             }
         ],
