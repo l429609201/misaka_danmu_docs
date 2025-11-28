@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://docs.misaka10876.top/sitemap.xml
