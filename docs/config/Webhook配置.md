@@ -147,8 +147,8 @@ curl -X POST http://<IP>:7768/api/webhook \
 
 ## 📚 相关文档
 
-- **[🎬 元数据源配置](/config/metadata)** - 提高匹配准确率
-- **[🤖 AI 功能配置](/config/ai)** - AI 辅助识别
-- **[🤖 Telegram Bot](/config/telegram)** - 接收通知
-- **[❓ 常见问题](/faq)** - 故障排除
+- **[🎬 元数据源配置](/config/元数据源配置)** - 提高匹配准确率
+- **[🤖 AI 功能配置](/config/AI功能配置)** - AI 辅助识别
+- **[🤖 Telegram Bot](/config/Telegram机器人)** - 接收通知
+- **[❓ 常见问题](/常见问题)** - 故障排除
 

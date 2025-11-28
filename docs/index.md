@@ -11,10 +11,10 @@ hero:
   actions:
     - theme: brand
       text: 快速开始
-      link: /start
+      link: /快速开始
     - theme: alt
       text: 客户端配置
-      link: /client
+      link: /客户端配置
     - theme: alt
       text: GitHub
       link: https://github.com/l429609201/misaka_danmu_server
