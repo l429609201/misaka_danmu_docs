@@ -30,15 +30,11 @@ export default defineConfig({
                     {text: 'Webhook 配置', link: '/config/Webhook配置'},
                     {text: '过滤配置', link: '/config/过滤配置'},
                     {text: 'Telegram Bot', link: '/config/Telegram机器人'},
-                ]
-            },
-            {
-                text: '高级功能',
-                items: [
+                    {text: '设置', link: '/config/设置'},
                     {text: '弹幕库管理', link: '/advanced/弹幕库管理'},
-                    {text: '媒体获取', link: '/advanced/媒体获取'},
-                    {text: '弹幕API功能配置', link: '/advanced/弹幕API功能配置'},
                     {text: '弹幕源管理', link: '/advanced/弹幕源管理'},
+                    {text: '弹幕API功能', link: '/advanced/弹幕API功能配置'},
+                    {text: '媒体获取', link: '/advanced/媒体获取'},
                     {text: '外部控制', link: '/advanced/外部控制'},
                 ]
             },
@@ -54,8 +50,14 @@ export default defineConfig({
                     {text: 'MySQL 优化', link: '/ops/MySQL内存优化'},
                     {text: '定时任务', link: '/ops/定时任务'},
                     {text: '缓存日志清理', link: '/ops/缓存日志清理任务说明'},
+                ]
+            },
+            {
+                text: '帮助',
+                items: [
                     {text: '常见问题', link: '/常见问题'},
                     {text: '问题反馈', link: '/问题反馈'},
+                    {text: '更新日志', link: '/更新日志'},
                 ]
             },
         ],
@@ -152,17 +154,13 @@ export default defineConfig({
                         collapsed: true,
                         items: [
                             {text: '代理配置', link: '/config/设置#代理配置'},
-                            {text: 'GitHub Token 与信任反代', link: '/config/设置#github-token-与信任反代'},
+                            {text: '安全设置', link: '/config/设置#安全设置'},
                             {text: '识别词配置', link: '/config/设置#识别词配置'},
                             {text: '会话管理', link: '/config/设置#会话管理'},
+                            {text: '参数配置', link: '/config/设置#参数配置'},
                             {text: '修改密码', link: '/config/设置#修改密码'},
                         ]
                     },
-                ]
-            },
-            {
-                text: '高级功能',
-                items: [
                     {
                         text: '弹幕库管理',
                         link: '/advanced/弹幕库管理',
@@ -191,7 +189,7 @@ export default defineConfig({
                         ]
                     },
                     {
-                        text: '弹幕API功能配置',
+                        text: '弹幕API功能',
                         link: '/advanced/弹幕API功能配置',
                         collapsed: true,
                         items: [
@@ -266,22 +264,9 @@ export default defineConfig({
                             {text: '任务列表概览', link: '/ops/定时任务#任务列表概览'},
                             {text: 'TMDB自动刮削与剧集组映射', link: '/ops/定时任务#tmdb自动刮削与剧集组映射'},
                             {text: '刷新最新集弹幕/定时增量追更', link: '/ops/定时任务#刷新最新集弹幕-定时增量追更'},
-                            {text: '缓存日志清理任务', link: '/ops/定时任务#缓存日志清理任务'},
+                            {text: '数据库备份任务', link: '/ops/定时任务#数据库备份任务'},
+                            {text: '缓存日志清理任务', link: '/ops/缓存日志清理任务说明'},
                             {text: '查看任务执行状态', link: '/ops/定时任务#查看任务执行状态'},
-                        ]
-                    },
-                    {
-                        text: '缓存日志清理',
-                        link: '/ops/缓存日志清理任务说明',
-                        collapsed: true,
-                        items: [
-                            {text: '背景', link: '/ops/缓存日志清理任务说明#_1-背景'},
-                            {text: '关于 Binlog 清理失败 警告', link: '/ops/缓存日志清理任务说明#_2-关于-binlog-清理失败-警告'},
-                            {text: '图片缓存清理功能', link: '/ops/缓存日志清理任务说明#_3-图片缓存清理功能'},
-                            {text: '如何解决 Binlog 清理权限问题', link: '/ops/缓存日志清理任务说明#_4-如何解决-binlog-清理权限问题-可选'},
-                            {text: '配置选项', link: '/ops/缓存日志清理任务说明#_5-配置选项'},
-                            {text: '任务执行流程', link: '/ops/缓存日志清理任务说明#_6-任务执行流程'},
-                            {text: '故障排除', link: '/ops/缓存日志清理任务说明#_7-故障排除'},
                         ]
                     },
                 ]
@@ -294,12 +279,13 @@ export default defineConfig({
                         link: '/常见问题',
                         collapsed: true,
                         items: [
-                            {text: '忘记密码怎么办？', link: '/常见问题#忘记密码怎么办'},
-                            {text: '弹幕库搜索不到内容怎么办？', link: '/常见问题#弹幕库搜索不到内容怎么办'},
-                            {text: '数据库文件越来越大怎么办？', link: '/常见问题#数据库文件越来越大怎么办'},
-                            {text: '如何配置 TMDB/TVDB API Key?', link: '/常见问题#如何配置-tmdb-tvdb-api-key'},
-                            {text: 'AI 功能无法使用怎么办?', link: '/常见问题#ai-功能无法使用怎么办'},
-                            {text: '如何自定义弹幕文件存储路径?', link: '/常见问题#如何自定义弹幕文件存储路径'},
+                            {text: '忘记密码怎么办？', link: '/常见问题#reset-password'},
+                            {text: '弹幕库搜索不到内容怎么办？', link: '/常见问题#search-empty'},
+                            {text: '数据库文件越来越大怎么办？', link: '/常见问题#database-size'},
+                            {text: '如何配置 TMDB/TVDB API Key?', link: '/常见问题#metadata-api'},
+                            {text: 'AI 功能无法使用怎么办?', link: '/常见问题#ai-issues'},
+                            {text: '如何启用播放器自动搜索并下载弹幕功能?', link: '/常见问题#enable-auto-download'},
+                            {text: '如何自定义弹幕文件存储路径?', link: '/常见问题#custom-storage'},
                         ]
                     },
                     {
@@ -310,6 +296,10 @@ export default defineConfig({
                             {text: 'GitHub Issues', link: '/问题反馈#github-issues'},
                             {text: 'Telegram 频道私聊', link: '/问题反馈#telegram-频道私聊'},
                         ]
+                    },
+                    {
+                        text: '更新日志',
+                        link: '/更新日志',
                     },
                 ]
             }

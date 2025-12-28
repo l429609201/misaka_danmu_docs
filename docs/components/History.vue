@@ -26,13 +26,46 @@ let formatDate = (dateString) => {
 
 let md = markdownit({
   html: true,
-  linkify: true
+  linkify: true,
+  breaks: true  // 启用换行符转换，使单个换行符渲染为 <br>
 })
 
+// 自定义渲染器：将同仓库的 issue URL 显示为 #数字 格式
 md.renderer.rules.link_open = (tokens, idx, options, env, self) => {
   const token = tokens[idx]
   token.attrSet('target', '_blank') // 强制添加属性
   return self.renderToken(tokens, idx, options)
+}
+
+md.renderer.rules.text = (tokens, idx, options, env, self) => {
+  const token = tokens[idx]
+
+  // 检查当前文本是否在链接内部
+  if (idx > 0 && tokens[idx - 1].type === 'link_open') {
+    const linkToken = tokens[idx - 1]
+    const href = linkToken.attrGet('href')
+
+    // 匹配 GitHub issue URL
+    const issueUrlPattern = /^https:\/\/github\.com\/l429609201\/misaka_danmu_server\/issues\/(\d+)$/
+    const match = href?.match(issueUrlPattern)
+
+    if (match) {
+      const issueNumber = match[1]
+      // 将链接文本替换为 #数字 格式
+      return `#${issueNumber}`
+    }
+  }
+
+  // 默认情况：返回原始文本内容（需要进行 HTML 转义）
+  const escapeHtml = (text) => {
+    return text
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+  }
+
+  return escapeHtml(token.content)
 }
 
 md.use(MarkdownItGitHubAlerts)
@@ -170,5 +203,31 @@ const isLatest = (it) => {
 
 .el-collapse table {
   margin: 0;
+}
+
+.markdown-body {
+  word-wrap: break-word;
+  word-break: break-word;
+  white-space: normal;
+  overflow-wrap: break-word;
+  line-height: 1.6;
+}
+
+.markdown-body p {
+  margin-bottom: 16px;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  padding-left: 2em;
+  margin-bottom: 16px;
+}
+
+.markdown-body li {
+  margin-top: 0.25em;
+}
+
+.markdown-body code {
+  word-break: break-all;
 }
 </style>
