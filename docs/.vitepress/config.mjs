@@ -60,6 +60,7 @@ export default defineConfig({
                     {text: '常见问题', link: '/常见问题'},
                     {text: '问题反馈', link: '/问题反馈'},
                     {text: '更新日志', link: '/更新日志'},
+                    {text: '参与开发', link: '/dev/'},
                 ]
             },
         ],
@@ -326,6 +327,16 @@ export default defineConfig({
                     {
                         text: '更新日志',
                         link: '/更新日志',
+                    },
+                    {
+                        text: '参与开发',
+                        link: '/dev/',
+                        collapsed: true,
+                        items: [
+                            {text: '开发流程', link: '/dev/开发流程'},
+                            {text: '环境配置', link: '/dev/环境配置'},
+                            {text: '项目结构', link: '/dev/项目结构'},
+                        ]
                     },
                 ]
             }
