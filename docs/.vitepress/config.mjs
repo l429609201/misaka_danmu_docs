@@ -29,11 +29,15 @@ export default defineConfig({
                     {text: 'AI 功能配置', link: '/config/AI功能配置'},
                     {text: 'Webhook 配置', link: '/config/Webhook配置'},
                     {text: '过滤配置', link: '/config/过滤配置'},
-                    {text: 'Telegram Bot', link: '/config/Telegram机器人'},
+                    {text: '通知与交互', link: '/config/通知与交互'},
+                    {text: '名称转换', link: '/config/名称转换'},
                     {text: '设置', link: '/config/设置'},
                     {text: '弹幕库管理', link: '/advanced/弹幕库管理'},
+                    {text: '弹幕编辑', link: '/advanced/弹幕编辑'},
                     {text: '弹幕源管理', link: '/advanced/弹幕源管理'},
                     {text: '弹幕API功能', link: '/advanced/弹幕API功能配置'},
+                    {text: '本地剧集组', link: '/advanced/本地剧集组'},
+                    {text: '拆分数据源', link: '/advanced/拆分数据源'},
                     {text: '媒体获取', link: '/advanced/媒体获取'},
                     {text: '外部控制', link: '/advanced/外部控制'},
                     {text: '一键更新与更新历史', link: '/advanced/一键更新与更新历史'},
@@ -143,12 +147,23 @@ export default defineConfig({
                         ]
                     },
                     {
-                        text: 'Telegram Bot',
-                        link: '/config/Telegram机器人',
+                        text: '通知与交互',
+                        link: '/config/通知与交互',
                         collapsed: true,
                         items: [
-                            {text: '功能特性', link: '/config/Telegram机器人#功能特性'},
-                            {text: '使用方法', link: '/config/Telegram机器人#使用方法'},
+                            {text: 'Telegram Bot（内置）', link: '/config/通知与交互#telegram-bot-内置'},
+                            {text: 'Server酱³ Bot（内置）', link: '/config/通知与交互#server酱³-bot-内置'},
+                            {text: '第三方方案：表哥 Bot', link: '/config/通知与交互#第三方方案-表哥-telegram-bot'},
+                        ]
+                    },
+                    {
+                        text: '名称转换',
+                        link: '/config/名称转换',
+                        collapsed: true,
+                        items: [
+                            {text: '繁体转简体', link: '/config/名称转换#繁体转简体'},
+                            {text: '自定义名称转换', link: '/config/名称转换#自定义名称转换'},
+                            {text: '与 Webhook 的配合', link: '/config/名称转换#与-webhook-的配合'},
                         ]
                     },
                     {
@@ -179,6 +194,16 @@ export default defineConfig({
                         ]
                     },
                     {
+                        text: '弹幕编辑',
+                        link: '/advanced/弹幕编辑',
+                        collapsed: true,
+                        items: [
+                            {text: '拆分弹幕', link: '/advanced/弹幕编辑#拆分弹幕'},
+                            {text: '合并弹幕', link: '/advanced/弹幕编辑#合并弹幕'},
+                            {text: '偏移弹幕', link: '/advanced/弹幕编辑#偏移弹幕'},
+                        ]
+                    },
+                    {
                         text: '弹幕源管理',
                         link: '/advanced/弹幕源管理',
                         collapsed: true,
@@ -203,6 +228,24 @@ export default defineConfig({
                             {text: '弹幕存储配置', link: '/advanced/弹幕API功能配置#弹幕存储配置'},
                             {text: '高级设置', link: '/advanced/弹幕API功能配置#高级设置'},
                             {text: '常见问题', link: '/advanced/弹幕API功能配置#常见问题'},
+                        ]
+                    },
+                    {
+                        text: '本地剧集组',
+                        link: '/advanced/本地剧集组',
+                        collapsed: true,
+                        items: [
+                            {text: 'JSON 文件格式', link: '/advanced/本地剧集组#json-文件格式'},
+                            {text: '使用场景', link: '/advanced/本地剧集组#使用场景'},
+                        ]
+                    },
+                    {
+                        text: '拆分数据源',
+                        link: '/advanced/拆分数据源',
+                        collapsed: true,
+                        items: [
+                            {text: '使用方法', link: '/advanced/拆分数据源#使用方法'},
+                            {text: '适用场景', link: '/advanced/拆分数据源#适用场景'},
                         ]
                     },
                     {

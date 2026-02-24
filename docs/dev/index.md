@@ -30,9 +30,12 @@
 
 ### 数据库
 
-- **SQLite** - 轻量级部署
 - **MySQL** - 生产环境推荐
 - **PostgreSQL** - 高级功能支持
+
+::: warning 注意
+开发环境必须使用 MySQL 或 PostgreSQL，不支持 SQLite。
+:::
 
 ## 开发指南
 
