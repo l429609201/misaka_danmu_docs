@@ -20,6 +20,10 @@ export default defineConfig({
                 items: [
                     {text: '快速开始', link: '/快速开始'},
                     {text: '客户端配置', link: '/客户端配置'},
+                    {text: '类dandanplay接口', link: '/类dandanplay接口'},
+
+
+
                 ]
             },
             {
@@ -93,6 +97,19 @@ export default defineConfig({
                             {text: '配置弹幕接口', link: '/客户端配置#配置弹幕接口'},
                             {text: '支持的播放器', link: '/客户端配置#支持的播放器'},
                             {text: '常见问题', link: '/客户端配置#常见问题'},
+                        ]
+                    },
+                    {
+                        text: '类dandanplay接口',
+                        link: '/类dandanplay接口',
+                        collapsed: true,
+                        items: [
+                            {text: '接口前缀', link: '/类dandanplay接口#接口前缀'},
+                            {text: 'v2.7.0 改动', link: '/类dandanplay接口#v2-7-0-改动'},
+                            {text: '当前兼容接口', link: '/类dandanplay接口#当前兼容接口'},
+                            {text: '获取弹幕', link: '/类dandanplay接口#4-获取弹幕'},
+                            {text: '轮询异步任务', link: '/类dandanplay接口#5-轮询异步任务'},
+                            {text: '单文件匹配', link: '/类dandanplay接口#6-单文件匹配'},
                         ]
                     },
                 ]
