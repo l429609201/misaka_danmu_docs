@@ -59,7 +59,11 @@
 
 - **[GitHub 仓库](https://github.com/l429609201/misaka_danmu_server)** - 项目源代码
 - **[Issues](https://github.com/l429609201/misaka_danmu_server/issues)** - 问题反馈和功能建议
-- **[Telegram 频道](https://t.me/misaka_danmu)** - 交流讨论
+- **[Telegram 频道](https://t.me/misaka_danmaku)** - 交流讨论
+
+![Telegram 频道资料](/screenshot/弹幕库频道-加入频道1.jpg)
+
+![Telegram 加入频道](/screenshot/弹幕库频道-加入频道2.jpg)
 
 ---
 

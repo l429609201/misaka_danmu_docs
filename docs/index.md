@@ -9,7 +9,7 @@ title: 首页
 御坂网络弹幕服务
 </h1>
 <p align="center">
-一个功能强大的自托管弹幕聚合与管理服务，兼容 <a href="https://api.dandanplay.net/swagger/index.html">dandanplay</a> API 规范
+一个功能强大的自托管弹幕聚合与管理服务，兼容 <a href="https://api.dandanplay.net/swagger/index.html">弹弹play</a> API 规范
 </p>
 
 <a href="快速开始">快速开始</a>
@@ -33,9 +33,9 @@ title: 首页
 
 <hr style="height: 1px;">
 
-<img src="/screenshot/主页.png" alt="screenshot" id="screenshot">
+<img src="/screenshot/主页.jpg" alt="screenshot" id="screenshot">
 
-<p>支持 <strong>Yamby</strong> <strong>Hills</strong> <strong>小幻影视</strong> <strong>SenPlayer</strong> <strong>Afusekt</strong> <strong>dd-danmaku</strong> 等兼容 <a href="https://api.dandanplay.net/swagger/index.html">dandanplay API</a> 标准的播放器</p>
+<p>支持 <strong>Yamby</strong> <strong>Hills</strong> <strong>小幻影视</strong> <strong>SenPlayer</strong> <strong>Afusekt</strong> <strong>dd-danmaku</strong> 等兼容 <a href="https://api.dandanplay.net/swagger/index.html">弹弹play API</a> 标准的播放器</p>
 
 </div>
 
@@ -70,7 +70,7 @@ title: 首页
 
 ## 📚 参考项目
 
-- [dandanplayapi](https://api.dandanplay.net/swagger/index.html)
+- [弹弹play API](https://api.dandanplay.net/swagger/index.html)
 - [danmuku](https://github.com/lyz05/danmaku)
 - [emby-toolkit](https://github.com/hbq0405/emby-toolkit)
 - [swagger-ui](https://github.com/swagger-api/swagger-ui)

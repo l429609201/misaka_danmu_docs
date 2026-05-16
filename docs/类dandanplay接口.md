@@ -1,6 +1,6 @@
-# 📡 类dandanplay接口
+# 📡 类弹弹play接口
 
-御坂网络弹幕服务提供 **dandanplay API 兼容接口**，适用于支持自定义弹幕源的播放器与插件。
+御坂网络弹幕服务提供 **弹弹play API 兼容接口**，适用于支持自定义弹幕源的播放器与插件。
 
 ## 接口前缀
 
@@ -21,7 +21,7 @@ http://<服务器地址>:7768/api/v1/<你的Token>/api/v2
 ## v2.7.0 改动
 
 ::: tip Misaka 扩展说明
-`GET /taskcomment/{taskId}` 与 `GET /comment/{episodeId}` 的异步模式并不是 dandanplay 标准接口，而是 **Misaka 弹幕库单独设计的扩展能力**。
+`GET /taskcomment/{taskId}` 与 `GET /comment/{episodeId}` 的异步模式并不是弹弹play 标准接口，而是 **Misaka 弹幕库单独设计的扩展能力**。
 
 设计这个扩展的原因是：某些 **电影、长视频或较慢的数据源** 在获取弹幕时耗时较长，客户端如果一直同步等待，容易因为超时而拿不到结果。
 

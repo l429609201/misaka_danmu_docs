@@ -5,7 +5,7 @@ export default defineConfig({
     lang: "zh-CN",
     title: "御坂网络弹幕服务",
     titleTemplate: ":title - 御坂网络弹幕服务 自托管弹幕聚合与管理",
-    description: "一个功能强大的自托管弹幕（Danmaku）聚合与管理服务，兼容 dandanplay API 规范",
+    description: "一个功能强大的自托管弹幕（Danmaku）聚合与管理服务，兼容 弹弹play API 规范",
     cleanUrls: true,
     themeConfig: {
         // https://vitepress.dev/reference/default-theme-config
@@ -20,7 +20,7 @@ export default defineConfig({
                 items: [
                     {text: '快速开始', link: '/快速开始'},
                     {text: '客户端配置', link: '/客户端配置'},
-                    {text: '类dandanplay接口', link: '/类dandanplay接口'},
+                    {text: '类弹弹play接口', link: '/类dandanplay接口'},
 
 
 
@@ -44,6 +44,7 @@ export default defineConfig({
                     {text: '拆分数据源', link: '/advanced/拆分数据源'},
                     {text: '媒体获取', link: '/advanced/媒体获取'},
                     {text: '外部控制', link: '/advanced/外部控制'},
+                    {text: 'MCP 支持', link: '/advanced/MCP支持'},
                     {text: '一键更新与更新历史', link: '/advanced/一键更新与更新历史'},
                 ]
             },
@@ -100,7 +101,7 @@ export default defineConfig({
                         ]
                     },
                     {
-                        text: '类dandanplay接口',
+                        text: '类弹弹play接口',
                         link: '/类dandanplay接口',
                         collapsed: true,
                         items: [
@@ -286,6 +287,19 @@ export default defineConfig({
                             {text: '认证方式', link: '/advanced/外部控制#认证方式'},
                             {text: 'API 接口列表', link: '/advanced/外部控制#api-接口列表'},
                             {text: '接口调试', link: '/advanced/外部控制#🧪-接口调试'},
+                        ]
+                    },
+                    {
+                        text: 'MCP 支持',
+                        link: '/advanced/MCP支持',
+                        collapsed: true,
+                        items: [
+                            {text: '使用前准备', link: '/advanced/MCP支持#使用前准备'},
+                            {text: '连接地址', link: '/advanced/MCP支持#连接地址'},
+                            {text: '认证方式', link: '/advanced/MCP支持#认证方式'},
+                            {text: '客户端配置示例', link: '/advanced/MCP支持#客户端配置示例'},
+                            {text: '可用工具范围', link: '/advanced/MCP支持#可用工具范围'},
+                            {text: 'v2.7.2 相关增强', link: '/advanced/MCP支持#v2-7-2-相关增强'},
                         ]
                     },
                     {
@@ -477,13 +491,13 @@ export default defineConfig({
             "meta",
             {
                 name: "keywords",
-                content: "御坂网络弹幕服务,misaka,danmu,弹幕,dandanplay,emby,jellyfin"
+                content: "御坂网络弹幕服务,misaka,danmu,弹幕,弹弹play,emby,jellyfin"
             },
         ],
         // Open Graph
         ["meta", {property: "og:type", content: "website"}],
         ["meta", {property: "og:title", content: "御坂网络弹幕服务 - 自托管弹幕聚合与管理"}],
-        ["meta", {property: "og:description", content: "一个功能强大的自托管弹幕聚合与管理服务，兼容 dandanplay API 规范"}],
+        ["meta", {property: "og:description", content: "一个功能强大的自托管弹幕聚合与管理服务，兼容 弹弹play API 规范"}],
         ["meta", {property: "og:url", content: "https://docs.misaka10876.top"}],
         ["meta", {property: "og:site_name", content: "御坂网络弹幕服务"}],
         [
@@ -500,7 +514,7 @@ export default defineConfig({
         // Twitter Cards
         ["meta", {name: "twitter:card", content: "summary_large_image"}],
         ["meta", {name: "twitter:title", content: "御坂网络弹幕服务 - 自托管弹幕聚合与管理"}],
-        ["meta", {name: "twitter:description", content: "一个功能强大的自托管弹幕聚合与管理服务，兼容 dandanplay API 规范"}],
+        ["meta", {name: "twitter:description", content: "一个功能强大的自托管弹幕聚合与管理服务，兼容 弹弹play API 规范"}],
         [
             "meta",
             {
