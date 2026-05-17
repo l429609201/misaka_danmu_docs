@@ -48,3 +48,4 @@ logs
 cache
 node_modules
 .augment/rules/rule-name.md
+.cunzhi-memory/metadata.json
